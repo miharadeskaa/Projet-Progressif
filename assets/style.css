@@ -1,0 +1,239 @@
+/* ── 0. VARIABLES DE THÈME ── */
+:root {
+    --bg-body: #04050f;
+    --bg-card: rgba(15, 17, 35, 0.6);
+    --text-main: #c8c4e8;
+    --text-bright: #ffffff;
+    --text-muted: #6b6b9a;
+    --border-color: rgba(100, 90, 200, 0.2);
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+    --bg-body: #f0f2f8;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --text-main: #2d2d44;
+    --text-bright: #1a1a2e;
+    --text-muted: #5d5d7a;
+    --border-color: rgba(100, 90, 200, 0.3);
+    --input-bg: rgba(0, 0, 0, 0.05);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ── 1. STRUCTURE GLOBALE ── */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+    flex: 1 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.centered-content {
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 20px;
+    background: rgba(4, 5, 15, 0.9);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* ── 2. CARTE NASA (Accueil) ── */
+.apod-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.apod-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.apod-card {
+    width: 100%;
+    max-width: 720px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.apod-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.apod-header-title { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+.apod-header-date { font-size: 11px; color: var(--text-muted); }
+
+.apod-image-wrap {
+    padding: 24px 24px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.apod-image-wrap img {
+    max-width: 100%;
+    max-height: 420px;
+    border-radius: 10px;
+    display: block;
+}
+
+.apod-body { padding: 20px 24px 24px; }
+.apod-title { color: var(--text-bright); font-size: 17px; font-weight: 500; margin-bottom: 8px; }
+.apod-desc { font-size: 13px; line-height: 1.8; color: var(--text-main); }
+
+.apod-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+    gap: 10px;
+}
+
+.apod-link {
+    font-size: 11px;
+    color: #7a77b8;
+    text-decoration: none;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: rgba(100, 90, 200, 0.05);
+    transition: all 0.2s;
+}
+
+.apod-link:hover { background: rgba(100, 90, 200, 0.15); color: #a09acc; }
+
+/* ── 3. FORMULAIRE DE CONTACT ── */
+section[data-aos] {
+    width: 100%;
+    max-width: 500px;
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+section h1 {
+    text-align: center;
+    background: linear-gradient(to right, #a09acc, var(--text-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+}
+
+/* Fix pour titre h1 en mode clair */
+[data-theme="light"] section h1 {
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: var(--text-bright);
+}
+
+label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-muted); }
+
+input[type="text"], textarea {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 10px;
+    color: var(--text-bright);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #645ac8;
+    box-shadow: 0 0 15px rgba(100, 90, 200, 0.2);
+}
+
+button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(135deg, #645ac8, #4a41a8);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover { transform: translateY(-2px); }
+
+/* ── 4. ESPACE ADMIN ── */
+.admin-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.message-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.message-author { font-weight: bold; color: var(--text-bright); }
+.message-date { font-size: 0.8rem; color: var(--text-muted); }
+
+.btn-logout {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    transition: all 0.2s;
+}
+
+.btn-logout:hover { background: #e74c3c; color: white; }

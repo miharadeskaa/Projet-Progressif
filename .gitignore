@@ -1,0 +1,12 @@
+# Fichiers de configuration
+.vscode/
+.idea/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers compressés 
+*.zip
+*.rar
+
