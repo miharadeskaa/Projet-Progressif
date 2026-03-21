@@ -34,9 +34,9 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
-            justify-content: center; /* CENTRE TOUTE LA NAV */
+            justify-content: center; 
             height: 58px;
-            gap: 40px; /* Espace entre le logo (Cosmos) et les liens */
+            gap: 40px; 
         }
 
         .nav-brand {
@@ -111,7 +111,7 @@ function toggleTheme() {
 (function() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
-    // On attend que le DOM soit prêt pour changer le texte
+    
     window.addEventListener('DOMContentLoaded', () => updateThemeUI(savedTheme));
 })();
 </script>

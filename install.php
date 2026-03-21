@@ -1,5 +1,5 @@
 <?php
-require 'db_connect.php'; // Utilise votre fichier de connexion [cite: 2, 8]
+require 'db_connect.php'; 
 
 try {
     $sql = "CREATE TABLE IF NOT EXISTS messages (

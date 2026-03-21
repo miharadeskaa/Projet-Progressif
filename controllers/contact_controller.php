@@ -1,5 +1,5 @@
 <?php
-// LE CONTRÔLEUR (Partie 07)
+// LE CONTRÔLEUR 
 require_once '../db_connect.php';
 require_once '../models/MessageManager.php';
 
@@ -13,6 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['nom']) && !empty($_P
     }
 }
 
-// À la fin, le contrôleur appelle la vue
+
 include '../views/contact_view.php';
 ?>

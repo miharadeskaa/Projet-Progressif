@@ -4,11 +4,11 @@ class MessageManager {
 
     // Le constructeur reçoit la connexion à la base de données
     public function __construct($database) {
-        // CORRECTION : On écrit $this->pdo (avec le $)
+        
         $this->pdo = $database;
     }
 
-    // Méthode pour enregistrer un message (Partie 04 & 06)
+    // Méthode pour enregistrer un message 
     public function saveMessage($nom, $contenu) {
         $stmt = $this->pdo->prepare("INSERT INTO messages (nom, contenu) VALUES (:nom, :contenu)");
         return $stmt->execute([

@@ -41,7 +41,7 @@
         const length = textarea.value.length;
         counter.textContent = `${length} / 200`;
 
-        // Petit bonus : mettre le compteur en rouge si on dépasse 200
+        
         if (length > 200) {
             counter.style.color = "#ff4d4d";
         } else {

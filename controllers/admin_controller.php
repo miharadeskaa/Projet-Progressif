@@ -1,13 +1,13 @@
 <?php
-// 1. DÉMARRAGE DE LA SESSION (Toujours en premier !)
+// 1. DÉMARRAGE DE LA SESSION 
 session_start(); 
 
-// 2. CONNEXION À LA BASE (On remonte d'un dossier)
+// 2. CONNEXION à la base de données
 require '../db_connect.php'; 
 
 // 3. VÉRIFICATION DE LA SÉCURITÉ
 if (!isset($_SESSION['admin'])) { 
-    // On remonte pour trouver login.php à la racine
+    
     header('Location:/login.php');
     exit;
 }
