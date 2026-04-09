@@ -10,3 +10,5 @@ Thumbs.db
 *.zip
 *.rar
 
+# Données sensibles
+.env
