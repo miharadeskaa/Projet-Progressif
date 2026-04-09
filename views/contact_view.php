@@ -5,23 +5,23 @@
         <h1>Contactez-nous</h1>
         
         <?php if (isset($message_confirmation) && $message_confirmation): ?>
-            <p style="text-align:center; color:#a09acc; margin-bottom:20px;">
-                <div style="
-        background: rgba(100, 90, 200, 0.15);
-        border: 1px solid #645ac8;
-        color: #ddd8f8;
-        padding: 15px;
-        border-radius: 10px;
-        text-align: center;
-        margin-bottom: 25px;
-        font-size: 0.9rem;
-        animation: fadeIn 0.5s ease-out;">          
-        </div>
+            <div style="
+                background: rgba(100, 90, 200, 0.15);
+                border: 1px solid #645ac8;
+                color: #ddd8f8;
+                padding: 15px;
+                border-radius: 10px;
+                text-align: center;
+                margin-bottom: 25px;
+                font-size: 0.9rem;
+                animation: fadeIn 0.5s ease-out;">          
+                
                 <?php echo $message_confirmation; ?>
-            </p>
+                
+            </div>
         <?php endif; ?>
 
-        <form action="" method="POST">
+        <form action="" method="POST" autocomplete="off">
             <label for="nom">Nom</label>
             <input type="text" id="nom" name="nom" required>
 
