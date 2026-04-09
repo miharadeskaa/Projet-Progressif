@@ -5,18 +5,20 @@ Application web dynamique réalisée en PHP/MySQL intégrant les concepts modern
 
 ## 🛠️ Fonctionnalités intégrées
 - **Architecture MVC** : Séparation stricte de la logique (Contrôleurs), des données (Modèles) et de l'affichage (Vues).
-- **Programmation Orientée Objet** : Utilisation de la classe `MessageManager` pour la gestion des messages.
-- **Sécurité** : 
-  - Requêtes préparées contre les injections SQL.
+- **Gestion des Utilisateurs** : Système complet d'inscription et de connexion avec gestion de session.
+- **Programmation Orientée Objet (POO)** : 
+  - PHP : Classes `MessageManager` (contacts) et `UserManager` (utilisateurs).
+  - JavaScript : Classe `NasaApiManager` pour la gestion des données externes.
+- **Sécurité Avancée** : 
+  - Hachage sécurisé des mots de passe via `password_hash()` et `password_verify()`.
+  - Requêtes préparées (PDO) contre les injections SQL.
   - Protection XSS via `htmlspecialchars`.
-  - Gestion de session admin sécurisée.
-- **API NASA** : Intégration en temps réel de l'API "Astronomy Picture of the Day" avec clé API personnelle.
-- **Frontend** : 
-  - Compteur de caractères dynamique en JavaScript (Classe JS).
+- **API NASA (Fetch API)** : Récupération asynchrone en JavaScript de l'image du jour (APOD) avec intégration dynamique dans le DOM.
+- **Frontend & UX** : 
+  - Formulaires optimisés (autocomplete désactivé, compteur de caractères JS).
   - Animations de défilement via la bibliothèque **AOS**.
 
 ## ⚙️ Installation
-1. Importer la base de données via `install.php`.
-2. Configurer `db_connect.php` avec vos identifiants locaux.
-3. Accéder à l'admin avec les identifiants configurés en session.
-
+1. Importer le fichier `database.sql` dans votre gestionnaire de base de données.
+2. Configurer `db_connect.php` avec vos identifiants locaux si nécessaire.
+3. Utiliser le formulaire d'inscription dans l'Espace Admin pour créer un compte test.
