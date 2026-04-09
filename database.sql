@@ -14,6 +14,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Listage de la structure de la base pour projet_progressif
+CREATE DATABASE IF NOT EXISTS `projet_progressif` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `projet_progressif`;
+
 -- Listage de la structure de table projet_progressif. messages
 CREATE TABLE IF NOT EXISTS `messages` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -23,13 +28,27 @@ CREATE TABLE IF NOT EXISTS `messages` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table projet_progressif.messages : ~4 rows (environ)
+-- Listage des données de la table projet_progressif.messages : ~4 rows 
 INSERT INTO `messages` (`id`, `nom`, `contenu`, `date_envoi`) VALUES
 	(1, 'mika', 'coucou', '2026-03-13 09:46:22'),
 	(2, 'mika', 'bonjour', '2026-03-13 11:35:43'),
 	(3, 'mika', 'slt', '2026-03-13 11:40:14'),
 	(4, 'claude', 'bonsoir', '2026-03-13 12:00:53'),
 	(5, 'mika', 'ca marche', '2026-03-13 12:05:35');
+
+-- Listage de la structure de table projet_progressif. utilisateurs
+CREATE TABLE IF NOT EXISTS `utilisateurs` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mot_de_passe` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'admin',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Listage des données de la table projet_progressif.utilisateurs : ~0 rows 
+INSERT INTO `utilisateurs` (`id`, `email`, `mot_de_passe`, `role`) VALUES
+	(1, 'mika@test.com', '$2y$10$Xqwf1IcOWsd6uOEjuvOHiOWUEoK.Y40IyYS3DV0H5KWT91D3hRzCC', 'admin');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
