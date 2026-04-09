@@ -81,7 +81,7 @@
             <ul>                                
     <li><a href="/Projet-Progressif/index.php">Accueil</a></li>
     <li><a href="/Projet-Progressif/controllers/contact_controller.php">Contact</a></li>
-    <li class="nav-admin"><a href="/Projet-Progressif/login.php">Espace Admin</a></li>
+    <li class="nav-admin"><a href="/Projet-Progressif/controllers/auth_controller.php">Espace Admin</a></li>
     <li>
         <button id="theme-toggle" onclick="toggleTheme()" style="background:none; border:none; cursor:pointer; font-size:13px; margin-left:15px; display: flex; align-items: center; color: var(--text-main); gap: 8px;">
             <span id="theme-text">Mode Sombre</span> 🌓
