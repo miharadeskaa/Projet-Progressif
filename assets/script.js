@@ -25,7 +25,7 @@ class NasaApiManager {
             
         } catch (error) {
             console.error("Erreur lors de l'appel à l'API NASA :", error);
-            this.displayFallback(); // En cas de coupure internet
+            this.displayFallback(); 
         }
     }
 
@@ -39,11 +39,12 @@ class NasaApiManager {
         const dateObj = new Date(data.date);
         document.getElementById('apod-date').textContent = dateObj.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
         
-        // Gestion des droits d'auteur
+        // Gestion des droits d'auteur AVEC LIEN CLIQUABLE
         const copyright = data.copyright ? data.copyright.trim() : 'NASA';
-        document.getElementById('apod-copyright').textContent = copyright;
+        const imageUrl = data.hdurl || data.url; // On prépare le lien HD
+        document.getElementById('apod-copyright').innerHTML = `<a href="${imageUrl}" target="_blank" style="color: inherit; text-decoration: underline;" title="Voir l'image originale">${copyright}</a>`;
 
-        // Gestion de l'image ou de la vidéo
+        // L'image est cliquable aussi pour l'agrandir, et on gère les vidéos
         const mediaContainer = document.getElementById('apod-media-container');
         mediaContainer.innerHTML = ''; 
 
@@ -51,15 +52,19 @@ class NasaApiManager {
             mediaContainer.innerHTML = `
                 <div class="apod-video-wrap" style="padding: 20px; text-align: center;">
                     <p style="margin-bottom: 10px;">Découverte en vidéo</p>
-                    <a href="${data.url}" target="_blank" class="apod-video-link" style="color: #645ac8;">Voir sur la plateforme vidéo</a>
+                    <a href="${data.url}" target="_blank" class="apod-video-link" style="color: #645ac8; text-decoration: underline;">Voir sur la plateforme vidéo</a>
                 </div>
             `;
         } else {
-            mediaContainer.innerHTML = `<img src="${data.url}" alt="${data.title}" style="max-width: 100%; height: auto; border-radius: 8px;">`;
+            mediaContainer.innerHTML = `
+                <a href="${imageUrl}" target="_blank" title="Cliquez pour agrandir">
+                    <img src="${data.url}" alt="${data.title}" style="max-width: 100%; height: auto; border-radius: 8px; cursor: zoom-in;">
+                </a>
+            `;
         }
-    }
+    } // <-- C'EST CETTE ACCOLADE QUI MANQUAIT !
 
-    // Méthode de secours si l'API ne réponds pas
+    // Méthode de secours si l'API ne répond pas
     displayFallback() {
         document.getElementById('apod-title').textContent = "Exploration Spatiale";
         document.getElementById('apod-desc').textContent = "La NASA nous fait voyager, même quand l'API se repose.";
